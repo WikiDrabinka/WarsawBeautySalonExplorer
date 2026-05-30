@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Warsaw Beauty Salon Explorer",
-  description: "I will insert a description here maybe",
+  description: "An app for browsing Warsaw Beauty Salons",
 };
 
 export default function RootLayout({ children }) {

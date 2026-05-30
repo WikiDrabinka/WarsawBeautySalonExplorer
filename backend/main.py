@@ -16,10 +16,11 @@ class Salon(BaseModel):
     phone_number: str | None = None
     rating: float | None = None
     number_of_reviews: int | None = None
+    type: str | None = None
 
 @app.get("/")
 async def get_all():
-    data = cur.execute("SELECT id, name, district, rating, website FROM salons")
+    data = cur.execute("SELECT id, name, district, rating, type FROM salons")
     return [dict(row) for row in data]
 
 @app.get("/salon/{salon_id}")
@@ -30,6 +31,6 @@ async def get_salon(salon_id: str):
 @app.put("/salon/{salon_id}")
 async def update_salon(salon_id: str, salon: Salon):
     object = salon.model_dump()
-    cur.execute("UPDATE salons SET name = ?, address = ?, postal_code = ?, district = ?, website = ?, phone_number = ?, rating = ?, number_of_reviews = ? WHERE id = ?",
+    cur.execute("UPDATE salons SET name = ?, address = ?, postal_code = ?, district = ?, website = ?, phone_number = ?, rating = ?, number_of_reviews = ?, type = ? WHERE id = ?",
                 (*object.values(), salon_id))
     con.commit()

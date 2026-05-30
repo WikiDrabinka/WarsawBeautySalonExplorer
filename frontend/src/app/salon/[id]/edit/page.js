@@ -27,6 +27,8 @@ export default async function Home({params}) {
       <form action={handleSumbit}>
         <div>Name</div>
         <input type="text" defaultValue={salon.name} name="name"></input>
+        <div>Type</div>
+        <input type="text" defaultValue={salon.type} name="type"></input>
         <div>Address</div>
         <input type="text" defaultValue={salon.address} name="address"></input>
         <div>Postal code</div>
@@ -42,7 +44,7 @@ export default async function Home({params}) {
         <div>Number of reviews</div>
         <input type="number" defaultValue={salon.number_of_reviews} min="0" name="number_of_reviews"></input>
         <div></div>
-        <input type="submit"></input>
+        <input type="submit" value="Submit"></input>
       </form>
     </div>
   );

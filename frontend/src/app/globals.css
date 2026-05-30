@@ -49,21 +49,50 @@ input {
   width: 600px;
 }
 
+table {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+div#districts, div#types {
+  /* border-bottom: #171717 1px dotted;
+  border-top: #171717 1px dotted; */
+  & > button {
+    margin-top: 5px;
+    float: right;
+  }
+}
+
+#label {
+  font-size: small;
+  border-bottom: #171717 1px solid;
+  padding-bottom: 0px;
+}
+
 .filter {
   display: inline-block;
 }
 
-#district-true {
+#districts, #types {
+  font-weight: bold;
+  padding: 0;
+}
+
+#district-true, #type-true {
   background-color: #dddddd;
   border-radius: 10px;
 }
 
-td#district {
-  width: 200px;
+td#name {
+  width: 60%;
+}
+
+td#district, td#type {
+  width: 15%;
 }
 
 td#rating {
-  width: 100px;
+  width: 10%;
 }
 
 tr#row > td {

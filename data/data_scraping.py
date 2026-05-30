@@ -41,14 +41,15 @@ for place in places:
         *getAddress(place["addressComponents"]),
         place["rating"],
         place["userRatingCount"],
-        place["websiteUri"] if "websiteUri" in place.keys() else None
+        place["websiteUri"] if "websiteUri" in place.keys() else None,
+        place["googleMapsTypeLabel"]
     ))
 
     visited_ids.add(place["id"])
 
-con = sqlite3.connect("salons.db")
+con = sqlite3.connect("data.db")
 cur = con.cursor()
-cur.execute("CREATE TABLE IF NOT EXISTS salons (id text, name text, phone_number text, address text, postal_code text, district text, rating real, number_of_reviews int, website text, PRIMARY KEY(id))")
-cur.executemany("INSERT INTO salons VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", place_list)
+cur.execute("CREATE TABLE IF NOT EXISTS salons (id text, name text, phone_number text, address text, postal_code text, district text, rating real, number_of_reviews int, website text, type text, PRIMARY KEY(id))")
+cur.executemany("INSERT INTO salons VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", place_list)
 con.commit()
 con.close()
